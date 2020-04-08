@@ -41,7 +41,7 @@
   <body class="Inicio">
     <div id="top-pagina"></div>
     
-    <!-- FONDO CARGANDO -->
+    <!-------------------- FONDO CARGANDO -------------------->
     <?php
         $args = array(
           'post_per_page' => 1,
@@ -56,17 +56,27 @@
       <?php endwhile; wp_reset_postdata(); ?>
 
     
-    <!-- FONDO ANIMADO DE LA PAGINA -->
-    <div id="fondo1"></div>
-    <div id="fondo2"></div>
-    <div id="fondo3"></div>
-    <div id="fondo4"></div>
-    
+    <!-------------------- FONDO ANIMADO DE LA PAGINA -------------------->
+    <?php
+        $args = array(
+          'post_type' => 'page',
+          'post_parent' => 51
+        );
+      ?>
+      <?php $i = 1; ?>
+      <?php $fondoAnimado = new WP_Query($args); ?>
+      <?php $count = $fondoAnimado -> found_posts(); ?>
+
+      <?php while($fondoAnimado -> have_posts()): $fondoAnimado -> the_post(); ?>
+          <div id="fondo<?php echo $i; ?>" style="background-image: url(<?php the_field('imagen'); ?>)"></div>
+      <?php $i++; endwhile; wp_reset_postdata(); ?>
+
+    <!-------------------- HEADER -------------------->
     <header class="cabecera">
       <div class="encabezado">
         <div class="areamenu">
           <div class="mostrar-menu" id="boton-menu">
-            <p><span>&#8801</span><br/>Menú</p>
+            <p><span>&#8801;</span><br/>Menú</p>
           </div>
           <div class="ocultar-menu ocultar-boton-menu ocultomobile" id="boton-cerrar-menu">
             <p><span>X</span></p>
@@ -78,7 +88,7 @@
             <div class="enlaces-menu" id="enlace3"><a href="servicios.html">Servicios</a></div>
             <div class="enlaces-menu" id="enlace4"><a href="catalogo.html">Cat&aacute;logo</a></div>
             <div class="enlaces-menu" id="enlace5"><a href="blog.html">Blog</a></div>
-            <div class="esconder-menu">&amp;#215</div>
+            <div class="esconder-menu">&#215;</div>
           </nav>
         </div>
         <h1>Impresión Digital</h1>
@@ -124,18 +134,24 @@
     </section>
 
 
-    <section id="quienessomos">
-      <div class="container">
-        <div class="row">
-          <div class="titulosections col-12 col-md-3">
-            <h2>Centro de Impresión y Procesamiento Digital</h2>
+    <!--------------------- Sección Quienes Somos --------------------->
+    <?php $quienesSomos = new WP_Query('page_id=24'); ?>
+    <?php while($quienesSomos -> have_posts()): $quienesSomos -> the_post(); ?>
+        <section id="quienessomos">
+          <div class="container">
+            <div class="row">
+              <div class="titulosections col-12 col-md-3">
+                <h2><?php the_title(); ?></h2>
+              </div>
+              <div class="col-12 col-md-9 contenido wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
+                <p><?php the_field('contenido'); ?></p>
+              </div>
+            </div>
           </div>
-          <div class="col-12 col-md-9 contenido wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
-            <p>Somos una empresa innovadora en servicios para medios impresos publicitarios, y que cuenta con profesionales que poseen una gran trayectoria y experiencia en las artes gráficas, arte final, preprensa, impresión de gran formato, publicidad impresa e impresión digital por demanda.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+    <?php endwhile; wp_reset_postdata(); ?>
+
+    <!--------------------- Sección Servicios --------------------->
     <main>
       <section id="servicios">
         <div class="container">
