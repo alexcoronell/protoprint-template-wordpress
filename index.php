@@ -42,13 +42,26 @@
     <div id="top-pagina"></div>
     
     <!-- FONDO CARGANDO -->
-    <div id="fondo-cargando"><img src="img/cargando.gif"/></div>
+    <?php
+        $args = array(
+          'post_per_page' => 1,
+          'category_name' => 'fondoCargando'
+        );
+      ?>
+      <?php $fondoCargando = new WP_Query($args); ?>
+      <?php while($fondoCargando -> have_posts()): $fondoCargando -> the_post(); ?>
+        <div id="fondo-cargando">
+          <?php the_post_thumbnail('full'); ?>
+        </div>
+      <?php endwhile; wp_reset_postdata(); ?>
+
     
     <!-- FONDO ANIMADO DE LA PAGINA -->
     <div id="fondo1"></div>
     <div id="fondo2"></div>
     <div id="fondo3"></div>
     <div id="fondo4"></div>
+    
     <header class="cabecera">
       <div class="encabezado">
         <div class="areamenu">
