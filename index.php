@@ -34,18 +34,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Impresión Digital | Inicio</title><link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/bootstrapValidator.css"/>
-    <link rel="stylesheet" href="css/hover-min.css"/>
-    <link rel="stylesheet" href="css/animate.css"/>
-    <link rel="stylesheet" href="css/slick.css"/>
-    <link rel="stylesheet" href="css/slick-theme.css"/>
-    <link rel="stylesheet" href="css/styles.css"/>
+    
+
+    <?php wp_head(); ?>
   </head>
   <body class="Inicio">
-    <div id="top-pagina"></div><!-- FONDO CARGANDO -->
-    <div id="fondo-cargando"><img src="img/cargando.gif"/></div><!-- FONDO ANIMADO DE LA PAGINA -->
+    <div id="top-pagina"></div>
+    
+    <!-- FONDO CARGANDO -->
+    <div id="fondo-cargando"><img src="img/cargando.gif"/></div>
+    
+    <!-- FONDO ANIMADO DE LA PAGINA -->
     <div id="fondo1"></div>
     <div id="fondo2"></div>
     <div id="fondo3"></div>
@@ -72,20 +71,46 @@
         <h1>Impresión Digital</h1>
       </div>
     </header>
+
+<!--------------------- Sección Principal - Slider Principal --------------------->
     <section id="principal">
       <div class="carousel slide" id="carouselPrincipal" data-ride="carousel">
+      <?php
+        $args = array(
+          'post_per_page' => 3,
+          'category_name' => 'SliderPrincipal'
+        );
+      ?>
+      <?php $i = 0; ?>
+      <?php $sliderPrincipal = new WP_Query($args); ?>
+      <?php $cuenta = $sliderPrincipal -> found_posts(); ?>
+
+        <!-- Indicadores -->
         <ol class="carousel-indicators">
           <li class="active" data-target="#carouselPrincipal" data-slide-to="0"></li>
-          <li data-target="#carouselPrincipal" data-slide-to="1"></li>
-          <li data-target="#carouselPrincipal" data-slide-to="2"></li>
+          <?php for($j = 1; $j < $cuenta; $j++) { ?>
+          <li data-target="#carouselPrincipal" data-slide-to="<?php echo $j; ?>"></li>
+      <?php } ?>
         </ol>
+
+        <!-- Wrapper for Slides -->
         <div class="carousel-inner">
-          <div class="carousel-item active"><img class="d-block img-fluid" src="img/01-impresiondigital.jpg"/></div>
-          <div class="carousel-item"><img class="d-block img-fluid" src="img/02-impresionkonica.jpg"/></div>
-          <div class="carousel-item"><img class="d-block img-fluid" src="img/03-domicilios.jpg"/></div>
-        </div><a class="carousel-control-prev" href="#carouselPrincipal" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Anterior</span></a><a class="carousel-control-next" href="#carouselPrincipal" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Siguiente</span></a>
+          <?php while($sliderPrincipal -> have_posts()): $sliderPrincipal -> the_post(); ?>
+            <div class="carousel-item <?php echo $i == 0 ? 'active' : ''; ?>">
+              <!-- <img class="d-block img-fluid" src="img/01-impresiondigital.jpg"/> -->
+              <?php the_post_thumbnail('full', array('class' => 'd-block img-fluid')); ?>
+            </div>
+          <?php $i++; endwhile; wp_reset_postdata(); ?>
+        </div>
+
+        <!-- Controls -->
+        <?php if($sliderPrincipal -> found_posts): ?>
+          <a class="carousel-control-prev" href="#carouselPrincipal" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Anterior</span></a><a class="carousel-control-next" href="#carouselPrincipal" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Siguiente</span></a>
+        <?php endif; ?>
       </div>
     </section>
+
+
     <section id="quienessomos">
       <div class="container">
         <div class="row">
@@ -409,15 +434,7 @@
         <p>Desarrollado por Alex Coronell</p>
       </article>
     </footer>
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrapValidator.js"></script>
-    <script type="text/javascript" src="js/smooth-scroll.js"></script>
-    <script type="text/javascript" src="js/waypoints.min.js"></script>
-    <script type="text/javascript" src="js/slick.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <?php wp_footer(); ?>
     <!-- INICIO DE WOW PARA LAS ANIMACIONES-->
     <script type="text/javascript">new WOW().init();</script>
   </body>

@@ -1,3 +1,5 @@
+//$ = JQuery.noConflict();
+
 $('document').ready(function() {
 
     /* Ocultar Fondo Cargando */
