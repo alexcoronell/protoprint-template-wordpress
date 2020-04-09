@@ -86,7 +86,9 @@
             <!-- Logo en el menu mobile -->
             <?php $quienesSomos = new WP_Query('page_id=24'); ?>
             <?php while($quienesSomos -> have_posts()): $quienesSomos -> the_post(); ?>
-              <div class="logo img-fluid"><img src="<?php the_field('logo'); ?>" alt="Protoprint" title="Protoprint"/></div>
+              <div class="logo img-fluid">
+                <img src="<?php the_field('logo'); ?>" alt="Protoprint" title="Protoprint"/>
+              </div>
             <?php endwhile; wp_reset_postdata(); ?>
 
 
@@ -101,7 +103,7 @@
           <?php if( !empty( $menuitems ) ): ?>
             <?php $i = 1; ?>
             <?php foreach ( $menuitems as $item ): ?>
-              <div class="enlaces-menu" id="enlace<?php echo $i; ?>"><a href="<?php echo $item->url; ?>"><?php echo $item->post_title; ?></a></div>
+              <div class="enlaces-menu" id="enlace<?php echo $i; ?>"><a href="<?php bloginfo('template_url'); ?><?php echo $item->url; ?>"><?php echo $item->post_title; ?></a></div>
               <?php $i++ ?>
             <?php endforeach; ?>
             <?php else: // Caso contrario mostramos un mensaje indicando que el menú no tiene elementos
