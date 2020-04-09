@@ -82,8 +82,14 @@
             <p><span>X</span></p>
           </div>
           <nav class="menu menu-oculto">
-            <div class="logo img-fluid"><img src="img/logo.svg" alt="Protoprint" title="Protoprint"/></div>
-            
+
+            <!-- Logo en el menu mobile -->
+            <?php $quienesSomos = new WP_Query('page_id=24'); ?>
+            <?php while($quienesSomos -> have_posts()): $quienesSomos -> the_post(); ?>
+              <div class="logo img-fluid"><img src="<?php the_field('logo'); ?>" alt="Protoprint" title="Protoprint"/></div>
+            <?php endwhile; wp_reset_postdata(); ?>
+
+
             <?php
               $menu_name = 'menu_principal';
               $locations = get_nav_menu_locations();
