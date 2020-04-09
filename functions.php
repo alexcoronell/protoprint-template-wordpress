@@ -24,4 +24,11 @@ add_action('wp_enqueue_scripts', 'landing_styles');
 
 add_theme_support('post-thumbnails');
 
+function landing_menus() {
+    register_nav_menus(array(
+        'menu_principal' => __('Menu Principal')
+    ));
+}
+add_action('init', 'landing_menus');
+
 ?>

@@ -83,11 +83,25 @@
           </div>
           <nav class="menu menu-oculto">
             <div class="logo img-fluid"><img src="img/logo.svg" alt="Protoprint" title="Protoprint"/></div>
-            <div class="enlaces-menu" id="enlace1"><a href="index.html">Inicio</a></div>
-            <div class="enlaces-menu" id="enlace2"><a href="quienessomos.html">La Empresa</a></div>
-            <div class="enlaces-menu" id="enlace3"><a href="servicios.html">Servicios</a></div>
-            <div class="enlaces-menu" id="enlace4"><a href="catalogo.html">Cat&aacute;logo</a></div>
-            <div class="enlaces-menu" id="enlace5"><a href="blog.html">Blog</a></div>
+            
+            <?php
+              $menu_name = 'menu_principal';
+              $locations = get_nav_menu_locations();
+              $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+              $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+            ?>
+
+                  
+          <?php if( !empty( $menuitems ) ): ?>
+            <?php $i = 1; ?>
+            <?php foreach ( $menuitems as $item ): ?>
+              <div class="enlaces-menu" id="enlace<?php echo $i; ?>"><a href="<?php echo $item->url; ?>"><?php echo $item->post_title; ?></a></div>
+              <?php $i++ ?>
+            <?php endforeach; ?>
+            <?php else: // Caso contrario mostramos un mensaje indicando que el menú no tiene elementos
+    ?>
+             <p class="msg msg--error">El menú no tiene enlaces cargados.</p>
+            <?php endif; ?>
             <div class="esconder-menu">&#215;</div>
           </nav>
         </div>
@@ -279,7 +293,7 @@
                     <button class="btn btn-primary boton-formulario" type="submit">Enviar</button>
                   </div>
                   <div class="offset-2 col-8 mb-2" id="correcto">El mensaje se envió correctamente</div>
-                  <!-- Empiezan los papas-->
+                  <!-- Empiezan los mapas-->
                 </form>
               </div>
               <div class="col-12 caja-mapas container">
