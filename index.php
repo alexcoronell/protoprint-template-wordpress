@@ -4,15 +4,18 @@
 <!--------------------- Sección Principal - Slider Principal --------------------->
     <section id="principal">
       <div class="carousel slide" id="carouselPrincipal" data-ride="carousel">
-      <?php
-        $args = array(
-          'post_per_page' => 3,
-          'category_name' => 'SliderPrincipal'
-        );
-      ?>
+
+      <?php $args = array(
+                    'post_type' => 'page',
+                    'post_parent' => 312,
+                    'order' => 'ASC'
+                  );
+                ?>
+      <?php $sliderPrincipal = new WP_Query($args); ?>
       <?php $i = 0; ?>
       <?php $sliderPrincipal = new WP_Query($args); ?>
       <?php $cuenta = $sliderPrincipal -> found_posts(); ?>
+    
 
         <!-- Indicadores -->
         <ol class="carousel-indicators">
