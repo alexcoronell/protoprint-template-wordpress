@@ -157,191 +157,99 @@
         <div class="container">
           <div class="row">
             <div class="titulosections col-12 col-md-3">
-              <h2>Servicios</h2>
+              <?php $servicios = new WP_Query('page_id=73'); ?>
+              <?php while($servicios -> have_posts()): $servicios -> the_post(); ?>
+                <h2><?php the_title(); ?></h2>
+                <?php endwhile; wp_reset_postdata(); ?>
             </div>
             <div class="col-12 col-md-9 contenido-servicios">
               <div class="container">
                 <div class="row">
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/impresiondigital.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalImpresionDigital">
-                          <h3>Impresión Digital</h3></a></div>
+
+                <?php $args = array(
+                    'post_type' => 'page',
+                    'post_parent' => 73,
+                    'order' => 'ASC'
+                  );
+                ?>
+                <?php $serviciosContent = new WP_Query($args); ?>
+                <?php while($serviciosContent -> have_posts()): $serviciosContent -> the_post(); ?>
+                    <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
+                      <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="<?php the_field('imagen'); ?>"/>
+                        <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#Modal<?php the_field('modalid'); ?>">
+                            <h3><?php the_title(); ?></h3></a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/impresionGranFormato.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalGranFormato">
-                          <h3>Gran Formato</h3></a></div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/disenografico.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalDisenoGrafico">
-                          <h3>Diseño Gráfico</h3></a></div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/sublimacion.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalSublimacion">
-                          <h3>Sublimación</h3></a></div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/diseno3d.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalDiseno3D">
-                          <h3>Diseño 3D</h3></a></div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
-                    <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="img/render.jpg"/>
-                      <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#ModalRender">
-                          <h3>Render</h3></a></div>
-                    </div>
-                  </div>
+
+                    <!-- Modal -->
+                    <div id=Modal<?php the_field('modalid'); ?> class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><?php the_title(); ?></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                          <div class="modal-body container">
+                            <div class="row">
+                              <div class="col-12 col-md-4"><img class="img-fluid" src="<?php the_field('imagen'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/></div>
+                              <div class="col-12 col-md-8">
+                                <p><?php the_field('contenido'); ?></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div></div>
+
+                <?php endwhile; wp_reset_postdata(); ?>
+                                  
                 </div>
               </div>
             </div>
           </div>
-        </div><div id=ModalImpresionDigital class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/impresiondigital.jpg" alt="Impresión Digital" title="Impresión Digital"/></div>
-                <div class="col-12 col-md-8">
-                  <p>Impresión digital hasta de 100x33 cm en adhesivos y papeles finos con laminado litográfico, personalización de producto impreso desde 1 unidad, afiches,volantes, tarjetas personales, diplomas, sticker, etiquetas, carpetas y tarjetas personalizadas para toda ocasión.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div><div id=ModalGranFormato class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/impresionGranFormato.jpg" alt="Gran Formato" title="Gran Formato"/></div>
-                <div class="col-12 col-md-8">
-                  <p>Impresión hasta de 1.80m x 3.20m a 1440dpi con tinta Ecosolvente.Disponemos de cabezales de impresión basados en la tecnología de inyección de tinta más avanzada de la industria, colocados de forma escalonada para maximizar la productividad.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div><div id=ModalDisenoGrafico class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/disenografico.jpg" alt="Diseño Gráfico" title="Diseño Gráfico"/></div>
-                <div class="col-12 col-md-8">
-                  <p>Diseño de tarjetas de presentación, volantes, piezas publicitarias, revistas y todo lo relacionado a publicidad impresa y digital.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div><div id=ModalSublimacion class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/sublimacion.jpg" alt="Sublimación" title="Sublimación"/></div>
-                <div class="col-12 col-md-8">
-                  <p>Vinilo textil en gorras y camisetas, garantizando que tu diseño tenga una larga duración.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div><div id=ModalDiseno3D class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/diseno3d.jpg" alt="Diseño 3D" title="Diseño 3D"/></div>
-                <div class="col-12 col-md-8">
-                  <p>Modelado y presentación de proyectos de Arquitectura en 3D (3DsMAX).</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div><div id=ModalRender class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Impresión DIgital</h5>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body container">
-              <div class="row">
-                <div class="col-12 col-md-4"><img class="img-fluid" src="img/render.jpg" alt="Render" title="Render"/></div>
-                <div class="col-12 col-md-8">
-                  <p>El modelado en 3D, nos permite previsualizar y publicitar el resultado final de nuestros productos.</p>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div></div>
+        </div>
+        </div>
+        </div>
       </section>
     </main>
+
+
+
+
+<!--------------------- Sección Servicios --------------------->
     <section id="infopromociones">
       <div class="container">
         <div class="row">
           <div class="titulosections col-12 col-md-3">
-            <h2>Infopromociones</h2>
+            <?php $infopromociones = new WP_Query('page_id=124'); ?>
+            <?php while($infopromociones -> have_posts()): $infopromociones -> the_post(); ?>
+              <h2><?php the_title(); ?></h2>
+            <?php endwhile; wp_reset_postdata(); ?>
           </div>
           <div class="col-12 col-md-9 text-center">
             <div class="infopromociones-slider p-0 p-md-1">
-              <div><img class="img-fluid" src="img/img-infopromociones/botones-personalizados.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/camisetas-personalizadas.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/domicilios-impresion.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/etiquetas-stickers.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/imanes-personalizados.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/impresionaltacalidad.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/mugs-personalizados.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/pago-con-tarjetas.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/revistas-folletos1.jpg"/></div>
-              <div><img class="img-fluid" src="img/img-infopromociones/tarjetas-presentacion.jpg"/></div>
+              
+              <?php $args = array(
+                    'post_type' => 'page',
+                    'post_parent' => 124,
+                    'order' => 'ASC'
+                  );
+              ?>
+              <?php $infopromocionesContent = new WP_Query($args); ?>
+              <?php while($infopromocionesContent -> have_posts()): $infopromocionesContent -> the_post(); ?>
+                <div><img class="img-fluid" src="<?php the_field('imagen'); ?>"/></div>
+              <?php endwhile; wp_reset_postdata(); ?>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
+<!--------------------- Sección Contacto --------------------->
     <section id="contacto">
       <div class="container">
         <div class="row">
@@ -393,75 +301,96 @@
         </div>
       </div>
     </section>
+
+
+
     <footer>
-      <article id="footer1">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
-              <h4>Contacta con nosotros</h4>
-              <ul>
-                <li>Telf: +57 4 511 4735</li>
-                <li>Telf: +57 313 888 5427</li>
-                <li><a href="mailto:protoprintid@gmail.com" target="_blank">Mándanos un email <br>protoprintid@gmail.com</a></li>
-              </ul>
+      <?php $datosEmpresa = new WP_Query('page_id=167'); ?>
+      <?php while($datosEmpresa -> have_posts()): $datosEmpresa -> the_post(); ?>
+          <article id="footer1">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
+                  <h4>Contacta con nosotros</h4>
+                  <ul>
+                    <li>Telf: <?php the_field('telefono1'); ?></li>
+                    <li>Telf: <?php the_field('telefono2'); ?></li>
+                    <li><a href="mailto:<?php the_field('email'); ?>" target="_blank">Mándanos un email <br><?php the_field('email'); ?></a></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
+                  <h4>Dónde estamos</h4>
+                  <ul>
+                    <li><?php the_field('ubicacion1'); ?></li>
+                    <li><?php the_field('ubicacion2'); ?></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
+                  <h4>Horarios</h4>
+                  <ul>
+                    <li>Lunes a Viernes de <?php the_field('horario_de_lunes_a_viernes'); ?></li>
+                    <li>Sábados de <?php the_field('horario_sabados'); ?></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
-              <h4>Dónde estamos</h4>
-              <ul>
-                <li>Sede Centro: Carrera 54 #54-72</li>
-                <li>Sede Belén: Carrera 82B #20-32</li>
-              </ul>
+            <?php endwhile; wp_reset_postdata(); ?>
+          </article>
+          <article id="footer2">
+          
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-4 text-center text-md-left">
+                  <h4>Nuestras redes sociales</h4>
+                </div>
+                <div class="col-12 col-md-4">
+                  <?php $args = array(
+                        'post_type' => 'page',
+                        'post_parent' => 180,
+                        'order' => 'ASC'
+                      );
+                      ?>
+                      <?php $redessocialescontent = new WP_Query($args); ?>
+                      
+                        <ul class="redessociales">
+                        <?php while($redessocialescontent -> have_posts()): $redessocialescontent -> the_post(); ?>
+                          <li>
+                          <?php $url = get_field('url') ?> 
+                          <?php $icono = get_field('icon') ?> 
+                            <?php  if ($url !="") { ?>
+                              <a href="<?php echo $url; ?>" target="_blank"><i class="<?php the_field('awesome_class'); ?>" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=<?php the_title(); ?>></i></a>
+                            <?php } else { ?>
+                              <i class="<?php the_field('awesome_class'); ?>" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=<?php the_title(); ?>></i>
+                            <?php } ?>
+                          </li>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                        </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <ul class="redessociales llamar text-center">
+                    <li><a href="tel:+573138885427"><i class="fa fa-phone-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Llámanos al 313 888 5427"></i></a><span>Llámanos</span></li>
+                  </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                  <ul class="redessociales whatsapp text-center">
+                    <li><a href="https://api.whatsapp.com/send?phone=573138885427&amp;text=Hola!%20Quiero%20tener%20más%20información!"><i class="fa fa-whatsapp" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Escríbenos al Whatsapp"></i></a><span>Escríbenos al Whatsapp!!</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 text-center text-sm-left">
-              <h4>Horarios</h4>
-              <ul>
-                <li>Lunes a Viernes de 8:00am a 6:00pm</li>
-                <li>Sábados de 8:00am a 1:00pm</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article id="footer2">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-4 text-center text-md-left">
-              <h4>Nuestras redes sociales</h4>
-            </div>
-            <div class="col-12 col-md-4">
-              <ul class="redessociales">
-                <li><a href="https://web.facebook.com/protoprintid/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=Facebook></i></a></li>
-                <li><i class="fa fa-twitter-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=Twitter></i> </li>
-                <li><a href="https://web.facebook.com/protoprintid/" target="_blank"><i class="fa fa-instagram" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=Instagram></i></a></li>
-                <li><i class="fa fa-youtube-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=Youtube></i> </li>
-                <li><a href="mailto:protoprintid@gmail.com" target="_blank"><i class="fa fa-envelope-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=Envíanos un correo></i></a></li>
-              </ul>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-              <ul class="redessociales llamar text-center">
-                <li><a href="tel:+573138885427"><i class="fa fa-phone-square" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Llámanos al 313 888 5427"></i></a><span>Llámanos</span></li>
-              </ul>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-              <ul class="redessociales whatsapp text-center">
-                <li><a href="https://api.whatsapp.com/send?phone=573138885427&amp;text=Hola!%20Quiero%20tener%20más%20información!"><i class="fa fa-whatsapp" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Escríbenos al Whatsapp"></i></a><span>Escríbenos al Whatsapp!!</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="text-center" id="footer3">
-        <ul>
-          <li>
-            <p>&copy Impresión Digital - Todos los derechos reservados - 2018</p>
-          </li>
-        </ul>
-      </article>
-      <article class="text-center" id="footer4"><a data-scroll="data-scroll" href="#top-pagina">
-          <p>Volver arriba</p></a></article>
-      <article class="text-center" id="footer5">
-        <p>Desarrollado por Alex Coronell</p>
-      </article>
+          </article>
+          <article class="text-center" id="footer3">
+            <ul>
+              <li>
+                <p>&copy Impresión Digital - Todos los derechos reservados - 2020</p>
+              </li>
+            </ul>
+          </article>
+          <article class="text-center" id="footer4"><a data-scroll="data-scroll" href="#top-pagina">
+              <p>Volver arriba</p></a></article>
+          <article class="text-center" id="footer5">
+            <p>Desarrollado por Alex Coronell</p>
+          </article>
     </footer>
     <?php wp_footer(); ?>
     <!-- INICIO DE WOW PARA LAS ANIMACIONES-->
