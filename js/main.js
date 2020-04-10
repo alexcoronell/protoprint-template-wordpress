@@ -89,14 +89,14 @@ $('document').ready(function() {
     /************************* BOTONES QUIENES SOMOS ***************************/
 
     $('#boton-mision').click(function() {
-        $('.contenidoMision').fadeToggle();
+        $('.contenidomision').fadeToggle();
     });
     $('#boton-vision').click(function() {
-        $('.contenidoVision').fadeToggle();
+        $('.contenidovision').fadeToggle();
     });
 
     $('#boton-valores').click(function() {
-        $('.contenidoValores').fadeToggle();
+        $('.contenidovalores').fadeToggle();
     });
     /************************* INICIO DE TOOLTIP ***************************/
     $('[data-toggle="tooltip"]').tooltip()

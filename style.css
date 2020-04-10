@@ -980,9 +980,9 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
     transition: all 2s ease-in-out;
 }
 
-.contenidoMision,
-.contenidoVision,
-.contenidoValores {
+.contenidomision,
+.contenidovision,
+.contenidovalores {
     display: none;
     transition: all 1s linear;
 }

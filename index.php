@@ -53,7 +53,7 @@
                 <h2><?php the_field('tituloseccion'); ?></h2>
               </div>
               <div class="col-12 col-md-9 contenido wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
-                <p><?php the_field('contenido'); ?></p>
+                <?php the_field('contenido'); ?>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@
                     <div class="col-12 col-sm-6 col-md-4 imagenes-servicios-seccion">
                       <div class="container wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s" data-wow-offset="60"><img class="img-fluid" src="<?php the_field('imagen'); ?>"/>
                         <div class="titulos-servicios"><a href="#modal" data-toggle="modal" data-target="#Modal<?php the_field('modalid'); ?>">
-                            <h3><?php the_title(); ?></h3></a>
+                            <h3><?php the_field('titulocorto'); ?></h3></a>
                         </div>
                       </div>
                     </div>
@@ -125,7 +125,7 @@
       </section>
     </main>
 
-<!--------------------- Sección Servicios --------------------->
+<!--------------------- Sección Infopromociones --------------------->
     <section id="infopromociones">
       <div class="container">
         <div class="row">
