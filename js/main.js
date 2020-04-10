@@ -2,6 +2,9 @@
 
 $('document').ready(function() {
 
+    //Llamado a función de cálculo de altura de Blog
+    //minWrapHeight();
+
     /* Ocultar Fondo Cargando */
     setTimeout(function() {
         $('#fondo-cargando').fadeOut();
@@ -173,3 +176,16 @@ function limpiarFormulario() {
     $("#email").val('');
     $("#mensaje").val('');
 }
+/*************FUNCION ALTURA MINIMA BLOG **********/
+function minWrapHeight() {
+    var content = JQuery(".page-content");
+    content.removeAttr('style');
+
+    var bodyHeight = JQuery(document).outerHeight();
+    var headerAndFooterHeight = JQuery('header').outerHeight() + JQuery('footer').outerHeight();
+
+    content.height((bodyHeight - headerAndFooterHeight) + 'px');
+}
+
+//Llamado a la función cuando se redimenciona la pantalla
+//JQuery(window).on('resize', minWrapHeight());

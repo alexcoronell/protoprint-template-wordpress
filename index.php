@@ -50,7 +50,7 @@
           <div class="container">
             <div class="row">
               <div class="titulosections col-12 col-md-3">
-                <h2><?php the_title(); ?></h2>
+                <h2><?php the_field('tituloseccion'); ?></h2>
               </div>
               <div class="col-12 col-md-9 contenido wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
                 <p><?php the_field('contenido'); ?></p>
@@ -124,9 +124,6 @@
         </div>
       </section>
     </main>
-
-
-
 
 <!--------------------- Sección Servicios --------------------->
     <section id="infopromociones">

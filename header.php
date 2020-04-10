@@ -92,12 +92,11 @@
               $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
               $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
             ?>
-
-                  
+                
           <?php if( !empty( $menuitems ) ): ?>
             <?php $i = 1; ?>
             <?php foreach ( $menuitems as $item ): ?>
-              <div class="enlaces-menu" id="enlace<?php echo $i; ?>"><a href="<?php bloginfo('template_url'); ?><?php echo $item->url; ?>"><?php echo $item->post_title; ?></a></div>
+              <div class="enlaces-menu" id="enlace<?php echo $i; ?>"><a href="<?php bloginfo('url'); ?><?php echo $item->url; ?>"><?php echo $item->post_title; ?></a></div>
               <?php $i++ ?>
             <?php endforeach; ?>
             <?php else: // Caso contrario mostramos un mensaje indicando que el menú no tiene elementos
