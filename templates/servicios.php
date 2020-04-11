@@ -10,7 +10,7 @@ get_header(); ?>
 <!-- Encabezado de la página -->
 <?php while ( have_posts() ) : the_post(); ?>
   <section class="principal-paginasinternas">
-    <div class="principal-quienessomos container">
+    <div class="principal-servicios container">
       <img class="img-fluid" src="<?php the_field('fondoencabezado') ?>"/>
       <div class="titulo-paginasinternas text-center wow slideInRight" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
         <h2><?php the_title(); ?></h2>

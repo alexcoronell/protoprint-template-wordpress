@@ -923,12 +923,14 @@ section.principal-paginasinternas>.container>img {
         padding: 0;
     }
     section#contenido-servicios>.container>.container,
+    section#contenido-blog>.container>.container,
     section#contenido-catalogo>.container>.container {
         width: 100%;
         padding: 0;
         margin-left: 0;
     }
     section#contenido-servicios>.container>.container>article,
+    section#contenido-blog>.container>.container>article,
     section#contenido-catalogo>.container>.container>article {
         margin-left: 0;
         margin-right: 0;
@@ -1004,11 +1006,13 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
 }
 
 #contenido-servicios .container,
+#contenido-blog .container,
 #contenido-catalogo .container {
     background: transparent;
 }
 
 #contenido-catalogo>.container>.container,
+#contenido-blog>.container>.container,
 #contenido-servicios>.container>.container {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -1017,6 +1021,7 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
 }
 
 #contenido-catalogo>.container>.container>article,
+#contenido-blog>.container>.container>article,
 #contenido-servicios>.container>.container>article {
     padding: 0;
 }
@@ -1125,6 +1130,35 @@ section#contenido-blog>.container {
         /*CSS animations*/
         animation: none !important;
     }
+}
+
+
+/*********************************** ESTILO DE LAS ENTRADAS DEL BLOG *********************************/
+
+.titulos-entrada {
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    background-color: #0095d5;
+}
+
+.titulos-entrada>a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.contenido-entrada>p,
+.contenido-entrada>a {
+    font-size: 1.1rem;
+}
+
+..contenido-entrada>button {
+    background-color: #0095d5;
+}
+
+.contenido-entrada>button>a {
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 
