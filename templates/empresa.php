@@ -8,6 +8,7 @@ get_header(); ?>
 
 
 <!------------------------------- Contenido de la página ------------------------------->
+
 <!-- Encabezado de la página -->
 <?php while ( have_posts() ) : the_post(); ?>
 <section class="principal-paginasinternas">
@@ -23,7 +24,7 @@ get_header(); ?>
  
 
 
-    <!-- Sección principal de la página -->
+<!-- Sección principal de la página -->
 <main>
   <section class="contenido-paginasinternas pb-4" id="contenido-quienessomos">
     <div class="container">
@@ -31,7 +32,7 @@ get_header(); ?>
         <article class="col-12 col-sm-6 col-md-4 imagen-quienessomos my-md-3 wow fadeIn" data-wow-duration="2s" data-wow-delay="1.4s" data-wow-offset="60"><img src="<?php the_field('logo') ?>" alt="Logo de Protoprint" title="Protoprint"/></article>
         <article class="col-12 col-sm-6 col-md-8 mt-md-4 wow fadeIn" data-wow-duration="5s" data-wow-delay="1.6s" data-wow-offset="60">
           <h3 class="tituloprincipal-quienessomos"><?php the_field('tituloseccion') ?></h3>
-          <?php the_field('contenido') ?>
+          <?php the_content(); ?>
         </article>
             
         <?php 
@@ -49,7 +50,7 @@ get_header(); ?>
             <h4><?php the_title() ?></h4>
           </button>
           <div class="contenido<?php the_field('titulosincaracteres'); ?>">
-            <?php the_field('contenido') ?>
+            <?php the_content(); ?>
           </div>
         </article>
 

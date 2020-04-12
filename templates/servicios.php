@@ -33,7 +33,7 @@ get_header(); ?>
         <?php $serviciosContent = new WP_Query($args); ?>
         <?php while($serviciosContent -> have_posts()): $serviciosContent -> the_post(); ?>
         
-        <div class="container wow fadeIn" data-wow-duration="2s" data-wow-delay="1s" data-wow-offset="60">
+        <div class="container wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s" data-wow-offset="60">
           <article class="col-12 row">
             <div class="titulos-pagina-servicios col-12 col-md-3 titulosections">
               <h3><?php the_title(); ?></h3>
@@ -41,7 +41,7 @@ get_header(); ?>
             <div class="imagenes-pagina-servicios col-12 col-sm-7 col-md-5"><img class="img-fluid" src="<?php the_field('imagen'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
             </div>
             <div class="contenidos-paginas-servicios col-12 col-sm-5 col-md-4">
-              <p><?php the_field('contenido'); ?></p>
+              <p><?php the_content(); ?></p>
             </div>
           </article>
         </div>

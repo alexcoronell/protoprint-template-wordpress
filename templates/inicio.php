@@ -48,7 +48,7 @@ get_header(); ?>
     </section>
 
 
-    <!--------------------- Sección Quienes Somos --------------------->
+<!--------------------- Sección Quienes Somos --------------------->
     <?php $quienesSomos = new WP_Query('page_id=24'); ?>
     <?php while($quienesSomos -> have_posts()): $quienesSomos -> the_post(); ?>
         <section id="quienessomos">
@@ -58,14 +58,14 @@ get_header(); ?>
                 <h2><?php the_field('tituloseccion'); ?></h2>
               </div>
               <div class="col-12 col-md-9 contenido wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="60">
-                <?php the_field('contenido'); ?>
+                <?php the_content(); ?>
               </div>
             </div>
           </div>
         </section>
     <?php endwhile; wp_reset_postdata(); ?>
 
-    <!--------------------- Sección Servicios --------------------->
+<!--------------------- Sección Servicios --------------------->
     <main>
       <section id="servicios">
         <div class="container">
@@ -108,7 +108,7 @@ get_header(); ?>
                             <div class="row">
                               <div class="col-12 col-md-4"><img class="img-fluid" src="<?php the_field('imagen'); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/></div>
                               <div class="col-12 col-md-8">
-                                <p><?php the_field('contenido'); ?></p>
+                                <p><?php the_content(); ?></p>
                               </div>
                             </div>
                           </div>
