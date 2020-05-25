@@ -83,7 +83,8 @@
           <article class="text-center" id="footer4"><a data-scroll="data-scroll" href="#top-pagina">
               <p>Volver arriba</p></a></article>
           <article class="text-center" id="footer5">
-            <p>Desarrollado en Wordpress por Alex Coronell</p>
+            <p>Desarrollado en Wordpress por <a href="http://www.alexcoronell.mipropia.com/" target="_blank">Alex Coronell</a></p>
+            
           </article>
     </footer>
     <?php wp_footer(); ?>
