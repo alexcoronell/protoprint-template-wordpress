@@ -1,9 +1,9 @@
 /*
-    Theme Name: Protoprint Landing Page
+    Theme Name: MasterIsand
     Theme URI:
     Author: Alexander Coronell
-    Author URI
-    Description: Landing Page Protoprint Impresion Digital
+    Author URI: www.alexcoronell.mipropia.com
+    Description: MasterIsand Impresion Digital
     Version: 1.0
     Tags: Landing, Webpage, css3, html5, jquery, javascript
 */
@@ -183,15 +183,19 @@ h5 {
     0% {
         opacity: 1;
     }
+
     20% {
         opacity: 1;
     }
+
     30% {
         opacity: 0;
     }
+
     90% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -260,6 +264,7 @@ header {
         height: 100px;
         transition: all 0.5s ease-in;
     }
+
     header div h1 {
         display: none;
     }
@@ -351,6 +356,7 @@ header {
     .ocultomobile {
         display: none;
     }
+
     .menu {
         position: fixed;
         left: 0;
@@ -363,6 +369,7 @@ header {
         transition: 0.8s;
         z-index: 99999;
     }
+
     .menu-oculto {
         left: -100%;
     }
@@ -376,6 +383,7 @@ header {
         height: 100px;
         border: 0;
     }
+
     #boton-menu {
         position: relative;
         float: right;
@@ -386,13 +394,16 @@ header {
         opacity: 1;
         transition: all 0.5s ease-in;
     }
+
     #boton-menu p {
         font-size: 1em;
         transition: all 0.5s ease-in;
     }
+
     #boton-menu p span {
         font-size: 6em;
     }
+
     .ocultar-menu {
         display: block !important;
         position: relative !important;
@@ -410,6 +421,7 @@ header {
         opacity: 1;
         z-index: 10;
     }
+
     .ocultar-menu p {
         line-height: 94px;
         color: #0095d5;
@@ -420,12 +432,15 @@ header {
         border: 0;
         transition: all 0.5s ease-in;
     }
+
     .ocultar-boton-menu {
         display: none !important;
     }
+
     .menu .logo {
         display: none;
     }
+
     .menu {
         position: relative;
         float: right;
@@ -445,13 +460,16 @@ header {
         opacity: 0;
         z-index: 99999;
     }
+
     .menu-desktop {
         height: 120px !important;
         opacity: 1 !important;
     }
+
     .menu-desktop-shadow {
         box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.7);
     }
+
     .menu .enlaces-menu {
         width: 120px;
         height: 0;
@@ -461,57 +479,72 @@ header {
         overflow: hidden;
         display: none;
     }
+
     .menu .enlaces-menu-desktop {
         height: 120px !important;
         opacity: 1 !important;
         display: block;
     }
+
     .menu .enlaces-menu:hover {
         transform: scale(1.04);
     }
+
     .menu .enlaces-menu a {
         font-size: 1.2em;
         line-height: 120px;
     }
+
     #enlace1 a,
     #enlace2 a,
     #enlace3 a {
         color: #1d4965;
     }
+
     #enlace4 a,
     #enlace5 a {
         color: #c2daf1;
     }
+
     #enlace1 {
         background-color: #c2daf1;
     }
+
     #enlace2 {
         background-color: #7fb7e3;
     }
+
     #enlace3 {
         background-color: #0095d5;
     }
+
     #enlace4 {
         background-color: #177aae;
     }
+
     #enlace5 {
         background-color: #1d4965;
     }
+
     .esconder-menu {
         display: none;
     }
+
     /**** EFECTOS MENU ****/
     .efectoHeader {
         height: 50px;
     }
+
     .efectoEncabezado {
         background-color: #1d496583 !important;
         background-color: rgba(29, 73, 101, 0.5);
     }
+
     .efectoBotonMenu {
         width: 50px !important;
         height: 50px !important;
     }
+
     .efectoBotonMenu p {
         transform: scale(0.5);
         line-height: 50px;
@@ -642,6 +675,7 @@ footer .container {
     #footer1 {
         padding-bottom: 70px;
     }
+
     .llamar,
     .whatsapp {
         display: none;
@@ -662,6 +696,7 @@ section#principal {
 }
 
 @media (min-width: 768px) {
+
     /* CARRUSEL */
     #carouselPrincipal {
         min-width: 768px;
@@ -746,6 +781,7 @@ section#servicios .titulos-servicios h3 {
         left: 22px;
         height: 35px;
     }
+
     section#servicios .titulos-servicios h3 {
         font-size: 1.4em;
         line-height: 35px;
@@ -759,6 +795,7 @@ section#servicios .titulos-servicios h3 {
         left: 22px;
         height: 40px;
     }
+
     section#servicios .titulos-servicios h3 {
         font-size: 1.7em;
         line-height: 40px;
@@ -778,6 +815,7 @@ section#servicios .titulos-servicios h3 {
     .modal {
         margin-top: 70px;
     }
+
     .modal-body p {
         font-size: 1.2em;
     }
@@ -807,12 +845,15 @@ section#infopromociones {
     .infopromociones-slider {
         width: 100%;
     }
+
     .botones-slider-infopromociones::before {
         display: none;
     }
+
     .slick-dots li {
         margin: 0;
     }
+
     .infopromociones-slider {
         width: 100%;
     }
@@ -822,6 +863,7 @@ section#infopromociones {
     .infopromociones-slider div {
         margin-left: 3px;
     }
+
     .botones-slider-infopromociones::before {
         color: #0095d5;
         cursor: pointer;
@@ -890,9 +932,11 @@ form>div>h4 {
     .caja-mapas img {
         margin-bottom: 10px;
     }
+
     .modal {
         margin-top: 35px;
     }
+
     footer>#footer1>.container>.row>.col-12 {
         text-align: center;
     }
@@ -913,15 +957,18 @@ section.principal-paginasinternas>.container>img {
 }
 
 @media (max-width: 767px) {
+
     /* PAGINA SERVICIOS - CATALOGO - BLOG */
     section#contenido-servicios,
     section#contenido-catalogo,
     section#contenido-blog {
         padding-top: 0 !important;
     }
+
     section#contenido-catalogo>.container {
         padding: 0;
     }
+
     section#contenido-servicios>.container>.container,
     section#contenido-blog>.container>.container,
     section#contenido-catalogo>.container>.container {
@@ -929,6 +976,7 @@ section.principal-paginasinternas>.container>img {
         padding: 0;
         margin-left: 0;
     }
+
     section#contenido-servicios>.container>.container>article,
     section#contenido-blog>.container>.container>article,
     section#contenido-catalogo>.container>.container>article {
@@ -1000,6 +1048,7 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
     #contenido-quienessomos p {
         font-size: 1.3em;
     }
+
     .contenidosMisionVisionValores {
         min-height: 425px;
     }
@@ -1036,14 +1085,17 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
         margin-left: 0;
         margin-right: 0;
     }
+
     .imagenes-pagina-servicios {
         padding: 0;
     }
+
     .contenidos-paginas-servicios {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .contenidos-paginas-servicios p {
         font-size: 1.2em;
     }
@@ -1053,20 +1105,25 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
     .titulos-pagina-servicios {
         min-height: 250px;
     }
+
     .imagenes-pagina-servicios {
         margin-top: 15px;
     }
+
     section#contenido-servicios {
         padding: 0 !important;
     }
+
     section#contenido-servicios>.container {
         padding-right: 0;
     }
+
     .contenidos-paginas-servicios {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .contenidos-paginas-servicios p {
         font-size: 1.3em;
     }
@@ -1088,13 +1145,16 @@ section#contenido-quienessomos>.container>.row>article.imagen-quienessomos {
     #contenido-catalogo {
         padding: 10px !important;
     }
+
     .contenido-catalogo-imagenes {
         margin-left: auto;
         margin-right: auto;
     }
+
     .contenido-catalogo-imagenes>div {
         background-color: #FFF;
     }
+
     .contenido-catalogo-imagenes>div>img {
         margin-left: auto;
         margin-right: auto;
